@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
 
     // firebaseService.initFirebase()
-    // firebaseService.subscribe('tasks', print)
+    // firebaseService.subscribe('tasks',  print)
 
     print1()
   }, [])

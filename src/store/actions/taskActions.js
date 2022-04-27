@@ -5,30 +5,30 @@ export function loadTasks() {
     try {
       const { filterBy } = getState().taskModule
       const tasks = await taskService.getTasks(filterBy)
-      dispatch({ type: 'SET_CONTACTS', tasks })
+      dispatch({ type: 'SET_TASKS', tasks })
     } catch (err) {
       console.log('err', err)
     }
   }
 }
 
-export function saveContact(taskToSave) {
+export function saveTask(taskToSave) {
   return async (dispatch) => {
     try {
-      const task = await taskService.saveContact()
-      if (taskToSave._id) dispatch({ type: 'UPDATE_CONTACT', task })
-      else dispatch({ type: 'ADD_CONTACT', task })
+      const task = await taskService.saveTask()
+      if (taskToSave._id) dispatch({ type: 'UPDATE_TASK', task })
+      else dispatch({ type: 'ADD_TASK', task })
     } catch (err) {
       console.log('err', err)
     }
   }
 }
 
-export function removeContact(taskId) {
+export function removeTask(taskId) {
   return async (dispatch) => {
     try {
-      await taskService.deleteContact(taskId)
-      dispatch({ type: 'REMOVE_CONTACT', taskId })
+      await taskService.deleteTask(taskId)
+      dispatch({ type: 'REMOVE_TASK', taskId })
     } catch (err) {
       console.log('err', err)
     }

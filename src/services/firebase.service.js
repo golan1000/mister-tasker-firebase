@@ -14,7 +14,7 @@ export const firebaseService = {
     saveDocument,
     subscribe
 }
-
+var app
 async function initFirebase() {
     // Get from Firebase
     const firebaseConfig = {
@@ -27,7 +27,7 @@ async function initFirebase() {
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig)
+    app = app ? app : initializeApp(firebaseConfig)
 
 
     // debug:

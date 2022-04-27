@@ -1,23 +1,23 @@
 const INITIAL_STATE = {
   tasks: null,
-  filterBy: null,
+  filterBy: {},
 }
 
 export function taskReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'SET_CONTACTS':
+    case 'SET_TASKS':
       return {
         ...state,
         tasks: action.tasks,
       }
 
-    case 'ADD_CONTACT':
+    case 'ADD_TASK':
       return {
         ...state,
         tasks: [...state.tasks, action.task],
       }
 
-    case 'UPDATE_CONTACT':
+    case 'UPDATE_TASK':
       return {
         ...state,
         tasks: state.tasks.map((task) =>
@@ -25,7 +25,7 @@ export function taskReducer(state = INITIAL_STATE, action) {
         ),
       }
 
-    case 'REMOVE_CONTACT':
+    case 'REMOVE_TASK':
       return {
         ...state,
         tasks: state.tasks.filter((task) => task._id !== action.taskId),
