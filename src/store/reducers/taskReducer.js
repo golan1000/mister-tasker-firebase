@@ -3,34 +3,32 @@ const INITIAL_STATE = {
   filterBy: null,
 }
 
-export function contactReducer(state = INITIAL_STATE, action) {
+export function taskReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'SET_CONTACTS':
       return {
         ...state,
-        contacts: action.contacts,
+        tasks: action.tasks,
       }
 
     case 'ADD_CONTACT':
       return {
         ...state,
-        contacts: [...state.contacts, action.contact],
+        tasks: [...state.tasks, action.task],
       }
 
     case 'UPDATE_CONTACT':
       return {
         ...state,
-        contacts: state.contacts.map((contact) =>
-          contact._id === action.contact._id ? action.contact : contact,
+        tasks: state.tasks.map((task) =>
+          task._id === action.task._id ? action.task : task,
         ),
       }
 
     case 'REMOVE_CONTACT':
       return {
         ...state,
-        contacts: state.contacts.filter(
-          (contact) => contact._id !== action.contactId,
-        ),
+        tasks: state.tasks.filter((task) => task._id !== action.taskId),
       }
 
     case 'SET_FILTER':
