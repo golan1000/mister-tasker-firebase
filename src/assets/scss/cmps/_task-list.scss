@@ -1,0 +1,32 @@
+.task-list {
+    .thead {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(101px, 150px));
+        background-color: rgb(5, 58, 51);
+        color: rgb(240, 229, 229);
+        font-weight: 600;
+        .td {
+            padding: 1em 0.5em;
+            border-left: 1px solid rgb(240, 229, 229);
+        }
+        .td:first-of-type {
+            border-left: none;
+        }
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    .task-preview:nth-child(even) {
+        background-color: rgb(230, 228, 228);
+    }
+    .task-preview:nth-child(odd) {
+        background-color: rgba(230, 228, 228, 0.466);
+    }
+    & :first-child {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    & :last-child {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}

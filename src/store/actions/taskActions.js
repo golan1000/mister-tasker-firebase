@@ -25,6 +25,7 @@ export function saveTask(taskToSave) {
 }
 
 export function removeTask(taskId) {
+  console.log('taskId', taskId)
   return async (dispatch) => {
     try {
       await taskService.deleteTask(taskId)

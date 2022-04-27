@@ -1,0 +1,65 @@
+.task-preview {
+    cursor: pointer;
+    &:hover {
+        box-shadow: -4px 0px 0px 0px #00000073;
+    }
+    .tp-preview {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(101px, 150px));
+        font-weight: 600;
+
+        .td {
+            padding: 1em 0.5em;
+            border-bottom: 1px solid rgb(197, 197, 197);
+            border-left: 1px solid rgb(197, 197, 197);
+        }
+        .td:last-of-type {
+            border-right: 1px solid rgb(197, 197, 197);
+        }
+        .tp-importance,
+        .tp-triesCount,
+        .tp-action {
+            text-align: center;
+        }
+        .tp-status {
+            &.new {
+                color: blue;
+            }
+            &.running {
+                color: #fbb803;
+            }
+            &.done {
+                color: green;
+            }
+            &.file {
+                color: red;
+            }
+        }
+        .delete-btn,
+        .run-btn {
+            border: none;
+            color: whitesmoke;
+            padding: 0.3em 1em;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .delete-btn {
+            background-color: red;
+        }
+        .run-btn {
+            background-color: green;
+        }
+    }
+
+    .task-details {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background-color: rgb(197, 197, 197);
+        padding: 1em 0.5em;
+
+        .tp-d-title {
+            font-weight: 600;
+        }
+    }
+}
