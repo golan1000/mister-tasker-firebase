@@ -15,10 +15,6 @@ const Tasks = [
   },
 ]
 
-async function query() {
-  return await firebaseService.getDocuments('tasks')
-}
-// await firebaseService.initFirebase()
 
 function sort(arr) {
   return arr.sort((a, b) => {
@@ -33,15 +29,18 @@ function sort(arr) {
   })
 }
 
-function getTasks(filterBy = null) {
-  console.log('filterBy=', filterBy)
-  return new Promise((resolve, reject) => {
-    var TasksToReturn = Tasks
-    if (filterBy && filterBy.term) {
-      TasksToReturn = filter(filterBy.term)
-    }
-    resolve(sort(TasksToReturn))
-  })
+async function getTasks(filterBy = {}) {
+  await firebaseService.initFirebase()
+  const tasks = await firebaseService.getDocuments('tasks', filterBy)
+  return tasks
+  // console.log('filterBy=', filterBy)
+  // return new Promise((resolve, reject) => {
+  //   var TasksToReturn = Tasks
+  //   if (filterBy && filterBy.term) {
+  //     TasksToReturn = filter(filterBy.term)
+  //   }
+  //   resolve(sort(TasksToReturn))
+  // })
 }
 
 function getTaskById(id) {
@@ -125,5 +124,4 @@ export default {
   deleteTask,
   saveTask,
   getEmptyTask,
-  query
 }
