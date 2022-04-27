@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export const TaskEdit = () => {
-    return (
-        <div>TaskEdit</div>
-    )
-}
+  return (
+    <div>
+      <div>TaskEdit</div>
+      <div>blaaaaaa</div>
+    </div>
+  );
+};
