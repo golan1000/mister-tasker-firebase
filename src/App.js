@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css';
 import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import { TaskApp } from './pages/TaskApp';
 import { TaskEdit } from './pages/TaskEdit';
+import { firebaseService } from './services/firebase.service';
+import taskService from './services/taskService';
 
 function App() {
+
+  useEffect(() => {
+
+    // firebaseService.initFirebase()
+    // firebaseService.subscribe('tasks', print)
+
+    print1()
+  }, [])
+
+  async function print1() {
+    await firebaseService.initFirebase()
+    let bla = await firebaseService.getDocuments('tasks', {})
+    console.log("bla=", bla)
+    // const tasks = await taskService.query()
+    // console.log('tasks', tasks)
+  }
+
   return (
     <Router>
       <div className="App">
-        {/* <TaskApp></TaskApp> */}
         <Switch>
           <Route path='/edit/:id?' component={TaskEdit} />
           <Route path='/' component={TaskApp} />
