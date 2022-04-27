@@ -50,15 +50,18 @@ function getTaskById(id) {
   })
 }
 
-function deleteTask(id) {
-  return new Promise((resolve, reject) => {
-    const index = Tasks.findIndex((Task) => Task._id === id)
-    if (index !== -1) {
-      Tasks.splice(index, 1)
-    }
+async function deleteTask(id) {
+  console.log('taskId', id)
 
-    resolve(Tasks)
-  })
+  // return new Promise((resolve, reject) => {
+  //   const index = Tasks.findIndex((Task) => Task._id === id)
+  //   if (index !== -1) {
+  //     Tasks.splice(index, 1)
+  //   }
+
+  //   resolve(Tasks)
+  // })
+  return await firebaseService.removeDocument('tasks', id)
 }
 
 function _updateTask(Task) {

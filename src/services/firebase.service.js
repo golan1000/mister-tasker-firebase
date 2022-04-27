@@ -12,7 +12,8 @@ export const firebaseService = {
     getDocument,
     addDocument,
     saveDocument,
-    subscribe
+    subscribe,
+    removeDocument
 }
 var app
 async function initFirebase() {
@@ -104,4 +105,9 @@ function subscribe(collectionName, cb) {
         cb(docs)
     });
 
+}
+
+async function removeDocument(collectionName, id) {
+    const db = getFirestore()
+    await deleteDoc(doc(db, collectionName, id));
 }

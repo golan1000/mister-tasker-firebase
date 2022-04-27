@@ -26,9 +26,10 @@ export function taskReducer(state = INITIAL_STATE, action) {
       }
 
     case 'REMOVE_TASK':
+      console.log('action.taskId', action.taskId)
       return {
         ...state,
-        tasks: state.tasks.filter((task) => task._id !== action.taskId),
+        tasks: state.tasks.filter((task) => task.id !== action.taskId),
       }
 
     case 'SET_FILTER':
