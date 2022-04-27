@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  tasks: null,
+  tasks: [],
   filterBy: {},
 }
 
@@ -18,10 +18,11 @@ export function taskReducer(state = INITIAL_STATE, action) {
       }
 
     case 'UPDATE_TASK':
+      console.log('state=', state)
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task._id === action.task._id ? action.task : task,
+          task.id === action.task.id ? action.task : task,
         ),
       }
 
